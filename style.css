@@ -1,0 +1,22 @@
+/* style.css - cores e fontes básicas para a versão simplificada */
+
+h1 {
+  color: blue;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+p {
+  color: gray;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
