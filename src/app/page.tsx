@@ -5,10 +5,3 @@ export default function Home() {
     </div>
   )
 }
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="pt-BR">
-      <body>{children}</body>
-    </html>
-  )
-}
