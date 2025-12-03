@@ -331,18 +331,18 @@ export function Dashboard({ userProfile }: DashboardProps) {
   const completedAchievements = achievements.filter(a => a.completed).length;
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[#F7F9F9]">
       {/* Header */}
-      <header className="border-b border-gray-900 bg-black sticky top-0 z-50">
+      <header className="border-b border-[#E8ECEC] bg-white sticky top-0 z-50 shadow-[0_2px_12px_rgba(0,0,0,0.04)]">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-[#00FF00]">AtiveMind</h1>
-              <p className="text-gray-500 text-sm">Olá, {userProfile.name}! 👋</p>
+              <h1 className="text-2xl md:text-3xl font-bold text-[#27AE60]">AtiveMind</h1>
+              <p className="text-[#7F8C8D] text-sm">Olá, {userProfile.name}! 👋</p>
             </div>
             <div className="text-right">
-              <div className="text-2xl md:text-3xl font-bold text-[#00FF00]">{completedHabits}/{habits.length}</div>
-              <div className="text-xs text-gray-500">hábitos hoje</div>
+              <div className="text-2xl md:text-3xl font-bold text-[#27AE60]">{completedHabits}/{habits.length}</div>
+              <div className="text-xs text-[#7F8C8D]">hábitos hoje</div>
             </div>
           </div>
 
@@ -350,46 +350,46 @@ export function Dashboard({ userProfile }: DashboardProps) {
           <div className="grid grid-cols-4 gap-2">
             <button
               onClick={() => setCurrentTab("habitos")}
-              className={`py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all ${
+              className={`py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all shadow-sm ${
                 currentTab === "habitos"
-                  ? "bg-[#00FF00] text-black"
-                  : "bg-gray-900 text-gray-400 hover:bg-gray-800"
+                  ? "bg-[#27AE60] text-white shadow-md"
+                  : "bg-white text-[#7F8C8D] hover:bg-[#F7F9F9] border border-[#E8ECEC]"
               }`}
             >
-              <Target className="w-4 h-4 mx-auto mb-1" />
+              <Target className={`w-4 h-4 mx-auto mb-1 ${currentTab === "habitos" ? "text-white" : "text-[#27AE60]"}`} />
               Hábitos
             </button>
             <button
               onClick={() => setCurrentTab("treinos")}
-              className={`py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all ${
+              className={`py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all shadow-sm ${
                 currentTab === "treinos"
-                  ? "bg-[#00FF00] text-black"
-                  : "bg-gray-900 text-gray-400 hover:bg-gray-800"
+                  ? "bg-[#27AE60] text-white shadow-md"
+                  : "bg-white text-[#7F8C8D] hover:bg-[#F7F9F9] border border-[#E8ECEC]"
               }`}
             >
-              <Dumbbell className="w-4 h-4 mx-auto mb-1" />
+              <Dumbbell className={`w-4 h-4 mx-auto mb-1 ${currentTab === "treinos" ? "text-white" : "text-[#27AE60]"}`} />
               Treinos
             </button>
             <button
               onClick={() => setCurrentTab("alimentacao")}
-              className={`py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all ${
+              className={`py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all shadow-sm ${
                 currentTab === "alimentacao"
-                  ? "bg-[#00FF00] text-black"
-                  : "bg-gray-900 text-gray-400 hover:bg-gray-800"
+                  ? "bg-[#27AE60] text-white shadow-md"
+                  : "bg-white text-[#7F8C8D] hover:bg-[#F7F9F9] border border-[#E8ECEC]"
               }`}
             >
-              <Apple className="w-4 h-4 mx-auto mb-1" />
+              <Apple className={`w-4 h-4 mx-auto mb-1 ${currentTab === "alimentacao" ? "text-white" : "text-[#27AE60]"}`} />
               Alimentação
             </button>
             <button
               onClick={() => setCurrentTab("mind")}
-              className={`py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all ${
+              className={`py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all shadow-sm ${
                 currentTab === "mind"
-                  ? "bg-[#00FF00] text-black"
-                  : "bg-gray-900 text-gray-400 hover:bg-gray-800"
+                  ? "bg-[#27AE60] text-white shadow-md"
+                  : "bg-white text-[#7F8C8D] hover:bg-[#F7F9F9] border border-[#E8ECEC]"
               }`}
             >
-              <Trophy className="w-4 h-4 mx-auto mb-1" />
+              <Trophy className={`w-4 h-4 mx-auto mb-1 ${currentTab === "mind" ? "text-white" : "text-[#27AE60]"}`} />
               Mind
             </button>
           </div>
@@ -402,22 +402,22 @@ export function Dashboard({ userProfile }: DashboardProps) {
         {currentTab === "habitos" && (
           <div className="space-y-6">
             <div className="space-y-3">
-              <h2 className="text-2xl font-bold text-white">Hábitos e Rotina 🎯</h2>
-              <p className="text-gray-400">
+              <h2 className="text-2xl font-bold text-[#27AE60]">Hábitos e Rotina 🎯</h2>
+              <p className="text-[#7F8C8D]">
                 Escolha 3 hábitos saudáveis para realizar hoje!
               </p>
               
               {/* Progress Card */}
               {habits.length > 0 && (
-                <Card className="bg-gray-950 border-0 p-6">
+                <Card className="bg-white border-0 shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-400 text-sm">Progresso de hoje</span>
-                      <span className="text-[#00FF00] text-2xl font-bold">{Math.round(progressPercentage)}%</span>
+                      <span className="text-[#7F8C8D] text-sm">Progresso de hoje</span>
+                      <span className="text-[#27AE60] text-2xl font-bold">{Math.round(progressPercentage)}%</span>
                     </div>
-                    <div className="h-3 bg-gray-900 rounded-full overflow-hidden">
+                    <div className="h-3 bg-[#F7F9F9] rounded-full overflow-hidden">
                       <div 
-                        className="h-full bg-[#00FF00] transition-all duration-500"
+                        className="h-full bg-[#27AE60] transition-all duration-500"
                         style={{ width: `${progressPercentage}%` }}
                       />
                     </div>
@@ -430,7 +430,7 @@ export function Dashboard({ userProfile }: DashboardProps) {
             {habits.length < 3 && (
               <Button
                 onClick={() => setShowHabitSelector(!showHabitSelector)}
-                className="w-full bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-6 rounded-2xl"
+                className="w-full bg-[#27AE60] hover:bg-[#229954] text-white font-bold py-6 rounded-2xl shadow-lg"
               >
                 <Sparkles className="w-5 h-5 mr-2" />
                 {habits.length === 0 ? "Escolher meus 3 hábitos" : `Adicionar hábito (${habits.length}/3)`}
@@ -439,8 +439,8 @@ export function Dashboard({ userProfile }: DashboardProps) {
 
             {/* Seletor de Hábitos */}
             {showHabitSelector && habits.length < 3 && (
-              <Card className="bg-gray-950 border-2 border-[#00FF00] p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Sugestões de Hábitos Saudáveis</h3>
+              <Card className="bg-white border-2 border-[#27AE60] shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
+                <h3 className="text-lg font-bold text-[#27AE60] mb-4">Sugestões de Hábitos Saudáveis</h3>
                 <div className="grid gap-3">
                   {availableHabits.map((habit) => {
                     const isSelected = habits.find(h => h.id === habit.id);
@@ -451,22 +451,22 @@ export function Dashboard({ userProfile }: DashboardProps) {
                         disabled={!!isSelected}
                         className={`p-4 rounded-xl border-2 transition-all text-left ${
                           isSelected
-                            ? "bg-gray-900 border-gray-800 opacity-50 cursor-not-allowed"
-                            : "bg-gray-900 border-gray-800 hover:border-[#00FF00]"
+                            ? "bg-[#F7F9F9] border-[#E8ECEC] opacity-50 cursor-not-allowed"
+                            : "bg-white border-[#E8ECEC] hover:border-[#27AE60] shadow-sm hover:shadow-md"
                         }`}
                       >
                         <div className="flex items-center gap-4">
-                          <div className={`p-3 rounded-full ${isSelected ? "bg-gray-800" : "bg-[#00FF00]/10"}`}>
-                            <div className={isSelected ? "text-gray-600" : "text-[#00FF00]"}>
+                          <div className={`p-3 rounded-full ${isSelected ? "bg-[#F7F9F9]" : "bg-[#27AE60]/10"}`}>
+                            <div className={isSelected ? "text-[#7F8C8D]" : "text-[#27AE60]"}>
                               {habit.icon}
                             </div>
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-white">{habit.name}</h4>
-                            <p className="text-sm text-gray-500">{habit.category} • Meta: {habit.goal}</p>
+                            <h4 className="font-bold text-[#1A1A1A]">{habit.name}</h4>
+                            <p className="text-sm text-[#7F8C8D]">{habit.category} • Meta: {habit.goal}</p>
                           </div>
                           {isSelected && (
-                            <CheckCheck className="w-5 h-5 text-[#00FF00]" />
+                            <CheckCheck className="w-5 h-5 text-[#27AE60]" />
                           )}
                         </div>
                       </button>
@@ -483,34 +483,34 @@ export function Dashboard({ userProfile }: DashboardProps) {
                   <div key={habit.id} className="relative">
                     <button
                       onClick={() => toggleHabit(habit.id)}
-                      className={`w-full p-5 rounded-2xl border-2 transition-all text-left ${
+                      className={`w-full p-5 rounded-2xl border-2 transition-all text-left shadow-sm hover:shadow-md ${
                         habit.completed
-                          ? "bg-[#00FF00]/10 border-[#00FF00]"
-                          : "bg-gray-950 border-gray-900 hover:border-gray-800"
+                          ? "bg-[#27AE60]/10 border-[#27AE60]"
+                          : "bg-white border-[#E8ECEC] hover:border-[#27AE60]/50"
                       }`}
                     >
                       <div className="flex items-center gap-4">
-                        <div className={`p-3 rounded-full ${habit.completed ? "bg-[#00FF00]" : "bg-gray-900"}`}>
+                        <div className={`p-3 rounded-full ${habit.completed ? "bg-[#27AE60]" : "bg-[#F7F9F9]"}`}>
                           {habit.completed ? (
-                            <CheckCircle2 className="w-5 h-5 text-black" />
+                            <CheckCircle2 className="w-5 h-5 text-white" />
                           ) : (
-                            <Circle className="w-5 h-5 text-gray-600" />
+                            <Circle className="w-5 h-5 text-[#7F8C8D]" />
                           )}
                         </div>
                         <div className="flex-1">
-                          <h3 className={`font-bold text-lg ${habit.completed ? "text-white" : "text-gray-400"}`}>
+                          <h3 className={`font-bold text-lg ${habit.completed ? "text-[#1A1A1A]" : "text-[#7F8C8D]"}`}>
                             {habit.name}
                           </h3>
-                          <p className="text-sm text-gray-500">Meta: {habit.goal}</p>
+                          <p className="text-sm text-[#7F8C8D]">Meta: {habit.goal}</p>
                         </div>
-                        <div className={habit.completed ? "text-[#00FF00]" : "text-gray-700"}>
+                        <div className={habit.completed ? "text-[#27AE60]" : "text-[#7F8C8D]"}>
                           {habit.icon}
                         </div>
                       </div>
                     </button>
                     <button
                       onClick={() => removeHabit(habit.id)}
-                      className="absolute top-2 right-2 p-2 bg-red-500/20 hover:bg-red-500/30 rounded-lg text-red-400 text-xs"
+                      className="absolute top-2 right-2 p-2 bg-red-500/20 hover:bg-red-500/30 rounded-lg text-red-600 text-xs font-medium"
                     >
                       Remover
                     </button>
@@ -527,8 +527,8 @@ export function Dashboard({ userProfile }: DashboardProps) {
             {!selectedWorkout ? (
               <>
                 <div className="space-y-3">
-                  <h2 className="text-2xl font-bold text-white">Treinos 💪</h2>
-                  <p className="text-gray-400">
+                  <h2 className="text-2xl font-bold text-[#27AE60]">Treinos 💪</h2>
+                  <p className="text-[#7F8C8D]">
                     Escolha seu objetivo e comece a treinar agora!
                   </p>
                 </div>
@@ -537,35 +537,35 @@ export function Dashboard({ userProfile }: DashboardProps) {
                 <div className="grid grid-cols-3 gap-2">
                   <button
                     onClick={() => setSelectedCategory("performance")}
-                    className={`py-4 px-3 rounded-xl font-bold text-sm transition-all ${
+                    className={`py-4 px-3 rounded-xl font-bold text-sm transition-all shadow-sm ${
                       selectedCategory === "performance"
-                        ? "bg-[#00FF00] text-black"
-                        : "bg-gray-950 text-gray-400 hover:bg-gray-900"
+                        ? "bg-[#27AE60] text-white shadow-md"
+                        : "bg-white text-[#7F8C8D] hover:bg-[#F7F9F9] border border-[#E8ECEC]"
                     }`}
                   >
-                    <Zap className="w-5 h-5 mx-auto mb-1" />
+                    <Zap className={`w-5 h-5 mx-auto mb-1 ${selectedCategory === "performance" ? "text-white" : "text-[#27AE60]"}`} />
                     Performance
                   </button>
                   <button
                     onClick={() => setSelectedCategory("emagrecimento")}
-                    className={`py-4 px-3 rounded-xl font-bold text-sm transition-all ${
+                    className={`py-4 px-3 rounded-xl font-bold text-sm transition-all shadow-sm ${
                       selectedCategory === "emagrecimento"
-                        ? "bg-[#00FF00] text-black"
-                        : "bg-gray-950 text-gray-400 hover:bg-gray-900"
+                        ? "bg-[#27AE60] text-white shadow-md"
+                        : "bg-white text-[#7F8C8D] hover:bg-[#F7F9F9] border border-[#E8ECEC]"
                     }`}
                   >
-                    <Flame className="w-5 h-5 mx-auto mb-1" />
+                    <Flame className={`w-5 h-5 mx-auto mb-1 ${selectedCategory === "emagrecimento" ? "text-white" : "text-[#27AE60]"}`} />
                     Emagrecimento
                   </button>
                   <button
                     onClick={() => setSelectedCategory("hipertrofia")}
-                    className={`py-4 px-3 rounded-xl font-bold text-sm transition-all ${
+                    className={`py-4 px-3 rounded-xl font-bold text-sm transition-all shadow-sm ${
                       selectedCategory === "hipertrofia"
-                        ? "bg-[#00FF00] text-black"
-                        : "bg-gray-950 text-gray-400 hover:bg-gray-900"
+                        ? "bg-[#27AE60] text-white shadow-md"
+                        : "bg-white text-[#7F8C8D] hover:bg-[#F7F9F9] border border-[#E8ECEC]"
                     }`}
                   >
-                    <Dumbbell className="w-5 h-5 mx-auto mb-1" />
+                    <Dumbbell className={`w-5 h-5 mx-auto mb-1 ${selectedCategory === "hipertrofia" ? "text-white" : "text-[#27AE60]"}`} />
                     Hipertrofia
                   </button>
                 </div>
@@ -573,26 +573,26 @@ export function Dashboard({ userProfile }: DashboardProps) {
                 {/* Workouts */}
                 <div className="space-y-4">
                   {workouts[selectedCategory].map((workout) => (
-                    <Card key={workout.id} className="bg-gray-950 border-0 p-6 hover:bg-gray-900 transition-all">
+                    <Card key={workout.id} className="bg-white border-0 shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl hover:shadow-lg transition-all">
                       <div className="space-y-4">
                         <div className="flex items-start justify-between">
                           <div className="flex items-center gap-4">
-                            <div className="p-4 bg-[#00FF00]/10 rounded-2xl text-[#00FF00]">
+                            <div className="p-4 bg-[#27AE60]/10 rounded-2xl text-[#27AE60]">
                               {workout.icon}
                             </div>
                             <div>
-                              <h3 className="font-bold text-xl text-white">{workout.name}</h3>
-                              <p className="text-sm text-gray-500">{workout.description}</p>
+                              <h3 className="font-bold text-xl text-[#1A1A1A]">{workout.name}</h3>
+                              <p className="text-sm text-[#7F8C8D]">{workout.description}</p>
                             </div>
                           </div>
                           <div className="text-right">
-                            <div className="text-xl font-bold text-[#00FF00]">{workout.duration}</div>
+                            <div className="text-xl font-bold text-[#27AE60]">{workout.duration}</div>
                           </div>
                         </div>
                         
                         <Button 
                           onClick={() => setSelectedWorkout(workout.id)}
-                          className="w-full bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-6 rounded-2xl"
+                          className="w-full bg-[#27AE60] hover:bg-[#229954] text-white font-bold py-6 rounded-2xl shadow-lg"
                         >
                           Ver exercícios
                           <ArrowRight className="w-5 h-5 ml-2" />
@@ -604,21 +604,21 @@ export function Dashboard({ userProfile }: DashboardProps) {
 
                 {/* Histórico */}
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                    <Calendar className="w-5 h-5 text-[#00FF00]" />
+                  <h3 className="text-xl font-bold text-[#27AE60] flex items-center gap-2">
+                    <Calendar className="w-5 h-5" />
                     Histórico de Atividades
                   </h3>
                   <div className="space-y-3">
                     {workoutHistory.map((item) => (
-                      <Card key={item.id} className="bg-gray-950 border-0 p-5">
+                      <Card key={item.id} className="bg-white border-0 shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-5 rounded-2xl">
                         <div className="flex items-center justify-between">
                           <div>
-                            <h4 className="font-bold text-white">{item.name}</h4>
-                            <p className="text-sm text-gray-500">{item.date}</p>
+                            <h4 className="font-bold text-[#1A1A1A]">{item.name}</h4>
+                            <p className="text-sm text-[#7F8C8D]">{item.date}</p>
                           </div>
                           <div className="text-right">
-                            <div className="text-[#00FF00] font-bold">{item.duration}</div>
-                            <div className="text-xs text-gray-500">{item.category}</div>
+                            <div className="text-[#27AE60] font-bold">{item.duration}</div>
+                            <div className="text-xs text-[#7F8C8D]">{item.category}</div>
                           </div>
                         </div>
                       </Card>
@@ -632,43 +632,43 @@ export function Dashboard({ userProfile }: DashboardProps) {
                 <div className="space-y-4">
                   <Button
                     onClick={() => setSelectedWorkout(null)}
-                    className="bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-xl"
+                    className="bg-white hover:bg-[#F7F9F9] text-[#27AE60] border-2 border-[#27AE60] font-bold py-3 px-6 rounded-xl shadow-sm"
                   >
                     ← Voltar
                   </Button>
 
                   <div className="space-y-3">
-                    <h2 className="text-2xl font-bold text-white">
+                    <h2 className="text-2xl font-bold text-[#27AE60]">
                       {workouts[selectedCategory].find(w => w.id === selectedWorkout)?.name}
                     </h2>
-                    <p className="text-gray-400">
+                    <p className="text-[#7F8C8D]">
                       Exercícios indicados pelo seu personal trainer
                     </p>
                   </div>
 
                   <div className="space-y-3">
                     {workoutExercises[selectedWorkout]?.map((exercise, index) => (
-                      <Card key={exercise.id} className="bg-gray-950 border-0 p-6">
+                      <Card key={exercise.id} className="bg-white border-0 shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
                         <div className="space-y-3">
                           <div className="flex items-start gap-4">
-                            <div className="flex-shrink-0 w-10 h-10 bg-[#00FF00] rounded-full flex items-center justify-center text-black font-bold">
+                            <div className="flex-shrink-0 w-10 h-10 bg-[#27AE60] rounded-full flex items-center justify-center text-white font-bold">
                               {index + 1}
                             </div>
                             <div className="flex-1">
-                              <h3 className="font-bold text-lg text-white mb-2">{exercise.name}</h3>
-                              <p className="text-sm text-gray-400 mb-3">{exercise.description}</p>
+                              <h3 className="font-bold text-lg text-[#1A1A1A] mb-2">{exercise.name}</h3>
+                              <p className="text-sm text-[#7F8C8D] mb-3">{exercise.description}</p>
                               <div className="grid grid-cols-3 gap-3">
-                                <div className="bg-gray-900 p-3 rounded-lg text-center">
-                                  <div className="text-xs text-gray-500 mb-1">Séries</div>
-                                  <div className="text-[#00FF00] font-bold">{exercise.sets}</div>
+                                <div className="bg-[#F7F9F9] p-3 rounded-lg text-center">
+                                  <div className="text-xs text-[#7F8C8D] mb-1">Séries</div>
+                                  <div className="text-[#27AE60] font-bold">{exercise.sets}</div>
                                 </div>
-                                <div className="bg-gray-900 p-3 rounded-lg text-center">
-                                  <div className="text-xs text-gray-500 mb-1">Repetições</div>
-                                  <div className="text-[#00FF00] font-bold">{exercise.reps}</div>
+                                <div className="bg-[#F7F9F9] p-3 rounded-lg text-center">
+                                  <div className="text-xs text-[#7F8C8D] mb-1">Repetições</div>
+                                  <div className="text-[#27AE60] font-bold">{exercise.reps}</div>
                                 </div>
-                                <div className="bg-gray-900 p-3 rounded-lg text-center">
-                                  <div className="text-xs text-gray-500 mb-1">Descanso</div>
-                                  <div className="text-[#00FF00] font-bold">{exercise.rest}</div>
+                                <div className="bg-[#F7F9F9] p-3 rounded-lg text-center">
+                                  <div className="text-xs text-[#7F8C8D] mb-1">Descanso</div>
+                                  <div className="text-[#27AE60] font-bold">{exercise.rest}</div>
                                 </div>
                               </div>
                             </div>
@@ -678,7 +678,7 @@ export function Dashboard({ userProfile }: DashboardProps) {
                     ))}
                   </div>
 
-                  <Button className="w-full bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-6 rounded-2xl">
+                  <Button className="w-full bg-[#27AE60] hover:bg-[#229954] text-white font-bold py-6 rounded-2xl shadow-lg">
                     <CheckCircle2 className="w-5 h-5 mr-2" />
                     Concluir treino
                   </Button>
@@ -692,26 +692,26 @@ export function Dashboard({ userProfile }: DashboardProps) {
         {currentTab === "alimentacao" && (
           <div className="space-y-6">
             <div className="space-y-3">
-              <h2 className="text-2xl font-bold text-white">Alimentação 🍎</h2>
-              <p className="text-gray-400">
+              <h2 className="text-2xl font-bold text-[#27AE60]">Alimentação 🍎</h2>
+              <p className="text-[#7F8C8D]">
                 Acompanhe suas calorias e receba sugestões personalizadas!
               </p>
             </div>
 
             {/* Contador de Calorias */}
-            <Card className="bg-gray-950 border-0 p-6">
+            <Card className="bg-white border-0 shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold text-white">Calorias de Hoje</h3>
-                  <BarChart3 className="w-5 h-5 text-[#00FF00]" />
+                  <h3 className="text-lg font-bold text-[#27AE60]">Calorias de Hoje</h3>
+                  <BarChart3 className="w-5 h-5 text-[#27AE60]" />
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-bold text-[#00FF00]">{caloriesConsumed}</div>
-                  <div className="text-gray-400">de {caloriesGoal} kcal</div>
+                  <div className="text-4xl font-bold text-[#27AE60]">{caloriesConsumed}</div>
+                  <div className="text-[#7F8C8D]">de {caloriesGoal} kcal</div>
                 </div>
-                <div className="h-3 bg-gray-900 rounded-full overflow-hidden">
+                <div className="h-3 bg-[#F7F9F9] rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-[#00FF00] transition-all duration-500"
+                    className="h-full bg-[#27AE60] transition-all duration-500"
                     style={{ width: `${Math.min(caloriesPercentage, 100)}%` }}
                   />
                 </div>
@@ -719,16 +719,16 @@ export function Dashboard({ userProfile }: DashboardProps) {
             </Card>
 
             {/* Análise por Foto */}
-            <Card className="bg-gray-950 border-0 p-6">
+            <Card className="bg-white border-0 shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
               <div className="space-y-4">
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                  <Camera className="w-5 h-5 text-[#00FF00]" />
+                <h3 className="text-lg font-bold text-[#27AE60] flex items-center gap-2">
+                  <Camera className="w-5 h-5" />
                   Análise de Refeição por Foto
                 </h3>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-[#7F8C8D]">
                   Tire uma foto da sua refeição e receba informações nutricionais instantâneas!
                 </p>
-                <Button className="w-full bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-6 rounded-2xl">
+                <Button className="w-full bg-[#27AE60] hover:bg-[#229954] text-white font-bold py-6 rounded-2xl shadow-lg">
                   <Camera className="w-5 h-5 mr-2" />
                   Tirar foto da refeição
                 </Button>
@@ -737,34 +737,34 @@ export function Dashboard({ userProfile }: DashboardProps) {
 
             {/* Seletor de Refeição */}
             <div className="space-y-4">
-              <h3 className="text-xl font-bold text-white">Sugestões por Refeição</h3>
+              <h3 className="text-xl font-bold text-[#27AE60]">Sugestões por Refeição</h3>
               <div className="grid grid-cols-2 gap-3">
                 {meals.map((meal) => (
                   <button
                     key={meal.id}
                     onClick={() => setSelectedMeal(meal.id as any)}
-                    className={`p-4 rounded-2xl border-2 transition-all ${
+                    className={`p-4 rounded-2xl border-2 transition-all shadow-sm hover:shadow-md ${
                       selectedMeal === meal.id
-                        ? "border-[#00FF00] bg-[#00FF00]/10"
-                        : "border-gray-900 bg-gray-950 hover:border-gray-800"
+                        ? "border-[#27AE60] bg-[#27AE60]/10"
+                        : "border-[#E8ECEC] bg-white hover:border-[#27AE60]/50"
                     }`}
                   >
-                    <div className={`mb-2 ${selectedMeal === meal.id ? "text-[#00FF00]" : "text-gray-600"}`}>
+                    <div className={`mb-2 ${selectedMeal === meal.id ? "text-[#27AE60]" : "text-[#7F8C8D]"}`}>
                       {meal.icon}
                     </div>
-                    <div className="text-sm font-bold text-white">{meal.name}</div>
-                    <div className="text-xs text-gray-500">{meal.time}</div>
+                    <div className="text-sm font-bold text-[#1A1A1A]">{meal.name}</div>
+                    <div className="text-xs text-[#7F8C8D]">{meal.time}</div>
                   </button>
                 ))}
               </div>
             </div>
 
             {/* Sugestões */}
-            <Card className="bg-gray-950 border-0 p-6">
-              <h3 className="text-lg font-bold text-white mb-4">Sugestões para {meals.find(m => m.id === selectedMeal)?.name}</h3>
+            <Card className="bg-white border-0 shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
+              <h3 className="text-lg font-bold text-[#27AE60] mb-4">Sugestões para {meals.find(m => m.id === selectedMeal)?.name}</h3>
               <div className="space-y-3">
                 {mealSuggestions[selectedMeal].map((suggestion, index) => (
-                  <div key={index} className="p-4 bg-gray-900 rounded-xl text-white">
+                  <div key={index} className="p-4 bg-[#F7F9F9] rounded-xl text-[#1A1A1A] border border-[#E8ECEC]">
                     {suggestion}
                   </div>
                 ))}
@@ -772,29 +772,29 @@ export function Dashboard({ userProfile }: DashboardProps) {
             </Card>
 
             {/* Dicas */}
-            <Card className="bg-[#00FF00]/10 border-2 border-[#00FF00] p-6">
-              <h3 className="text-lg font-bold text-[#00FF00] mb-3">💡 Dica do Dia</h3>
-              <p className="text-white">
+            <Card className="bg-[#27AE60]/10 border-2 border-[#27AE60] shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
+              <h3 className="text-lg font-bold text-[#27AE60] mb-3">💡 Dica do Dia</h3>
+              <p className="text-[#1A1A1A]">
                 Beba água antes das refeições para melhorar a digestão e aumentar a sensação de saciedade!
               </p>
             </Card>
 
             {/* Profissionais */}
             <div className="space-y-4">
-              <h3 className="text-xl font-bold text-white">Profissionais Certificados</h3>
+              <h3 className="text-xl font-bold text-[#27AE60]">Profissionais Certificados</h3>
               <div className="space-y-4">
                 {professionals.map((professional) => (
-                  <Card key={professional.id} className="bg-gray-950 border-0 p-6">
+                  <Card key={professional.id} className="bg-white border-0 shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
                     <div className="space-y-3">
                       <div className="flex items-start gap-4">
-                        <div className="p-4 bg-[#00FF00]/10 rounded-2xl text-[#00FF00]">
+                        <div className="p-4 bg-[#27AE60]/10 rounded-2xl text-[#27AE60]">
                           {professional.icon}
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-bold text-lg text-white">{professional.name}</h4>
-                          <p className="text-sm text-[#00FF00] mb-1">{professional.role}</p>
-                          <p className="text-xs text-gray-500 mb-2">Registro: {professional.certification}</p>
-                          <p className="text-sm text-gray-400">{professional.description}</p>
+                          <h4 className="font-bold text-lg text-[#1A1A1A]">{professional.name}</h4>
+                          <p className="text-sm text-[#27AE60] mb-1">{professional.role}</p>
+                          <p className="text-xs text-[#7F8C8D] mb-2">Registro: {professional.certification}</p>
+                          <p className="text-sm text-[#7F8C8D]">{professional.description}</p>
                         </div>
                       </div>
                     </div>
@@ -809,27 +809,27 @@ export function Dashboard({ userProfile }: DashboardProps) {
         {currentTab === "mind" && (
           <div className="space-y-6">
             <div className="space-y-3">
-              <h2 className="text-2xl font-bold text-white">Mind & Conquistas 🏆</h2>
-              <p className="text-gray-400">
+              <h2 className="text-2xl font-bold text-[#27AE60]">Mind & Conquistas 🏆</h2>
+              <p className="text-[#7F8C8D]">
                 Acompanhe seu progresso e compartilhe suas vitórias!
               </p>
             </div>
 
             {/* Objetivos do Dia */}
-            <Card className="bg-gray-950 border-0 p-6">
-              <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <Target className="w-5 h-5 text-[#00FF00]" />
+            <Card className="bg-white border-0 shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
+              <h3 className="text-lg font-bold text-[#27AE60] mb-4 flex items-center gap-2">
+                <Target className="w-5 h-5" />
                 Objetivos de Hoje
               </h3>
               <div className="space-y-3">
                 {dailyGoals.map((goal) => (
-                  <div key={goal.id} className="flex items-center gap-3 p-4 bg-gray-900 rounded-xl">
+                  <div key={goal.id} className="flex items-center gap-3 p-4 bg-[#F7F9F9] rounded-xl border border-[#E8ECEC]">
                     {goal.completed ? (
-                      <CheckCircle2 className="w-5 h-5 text-[#00FF00]" />
+                      <CheckCircle2 className="w-5 h-5 text-[#27AE60]" />
                     ) : (
-                      <Circle className="w-5 h-5 text-gray-600" />
+                      <Circle className="w-5 h-5 text-[#7F8C8D]" />
                     )}
-                    <span className={goal.completed ? "text-white" : "text-gray-400"}>{goal.text}</span>
+                    <span className={goal.completed ? "text-[#1A1A1A]" : "text-[#7F8C8D]"}>{goal.text}</span>
                   </div>
                 ))}
               </div>
@@ -837,8 +837,8 @@ export function Dashboard({ userProfile }: DashboardProps) {
 
             {/* Conquistas */}
             <div className="space-y-4">
-              <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                <Trophy className="w-5 h-5 text-[#00FF00]" />
+              <h3 className="text-xl font-bold text-[#27AE60] flex items-center gap-2">
+                <Trophy className="w-5 h-5" />
                 Suas Conquistas ({completedAchievements}/{achievements.length})
               </h3>
               <div className="grid gap-3">
@@ -846,25 +846,25 @@ export function Dashboard({ userProfile }: DashboardProps) {
                   <button
                     key={achievement.id}
                     onClick={() => toggleAchievement(achievement.id)}
-                    className={`p-5 rounded-2xl border-2 transition-all text-left ${
+                    className={`p-5 rounded-2xl border-2 transition-all text-left shadow-sm hover:shadow-md ${
                       achievement.completed
-                        ? "bg-[#00FF00]/10 border-[#00FF00]"
-                        : "bg-gray-950 border-gray-900 hover:border-gray-800"
+                        ? "bg-[#27AE60]/10 border-[#27AE60]"
+                        : "bg-white border-[#E8ECEC] hover:border-[#27AE60]/50"
                     }`}
                   >
                     <div className="flex items-center gap-4">
-                      <div className={`p-3 rounded-full ${achievement.completed ? "bg-[#00FF00]" : "bg-gray-900"}`}>
+                      <div className={`p-3 rounded-full ${achievement.completed ? "bg-[#27AE60]" : "bg-[#F7F9F9]"}`}>
                         {achievement.completed ? (
-                          <CheckCircle2 className="w-5 h-5 text-black" />
+                          <CheckCircle2 className="w-5 h-5 text-white" />
                         ) : (
-                          achievement.icon
+                          <div className="text-[#7F8C8D]">{achievement.icon}</div>
                         )}
                       </div>
                       <div className="flex-1">
-                        <h4 className={`font-bold text-lg ${achievement.completed ? "text-white" : "text-gray-400"}`}>
+                        <h4 className={`font-bold text-lg ${achievement.completed ? "text-[#1A1A1A]" : "text-[#7F8C8D]"}`}>
                           {achievement.title}
                         </h4>
-                        <p className="text-sm text-gray-500">{achievement.description}</p>
+                        <p className="text-sm text-[#7F8C8D]">{achievement.description}</p>
                       </div>
                     </div>
                   </button>
@@ -873,52 +873,52 @@ export function Dashboard({ userProfile }: DashboardProps) {
             </div>
 
             {/* Compartilhar */}
-            <Card className="bg-gray-950 border-0 p-6">
-              <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <Share2 className="w-5 h-5 text-[#00FF00]" />
+            <Card className="bg-white border-0 shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
+              <h3 className="text-lg font-bold text-[#27AE60] mb-4 flex items-center gap-2">
+                <Share2 className="w-5 h-5" />
                 Compartilhe seu Progresso
               </h3>
-              <p className="text-gray-400 text-sm mb-4">
+              <p className="text-[#7F8C8D] text-sm mb-4">
                 Inspire outras pessoas compartilhando suas conquistas nas redes sociais!
               </p>
-              <Button className="w-full bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-6 rounded-2xl">
+              <Button className="w-full bg-[#27AE60] hover:bg-[#229954] text-white font-bold py-6 rounded-2xl shadow-lg">
                 <Share2 className="w-5 h-5 mr-2" />
                 Compartilhar no Instagram
               </Button>
             </Card>
 
             {/* Comunidade */}
-            <Card className="bg-gray-950 border-0 p-6">
-              <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <Users className="w-5 h-5 text-[#00FF00]" />
+            <Card className="bg-white border-0 shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
+              <h3 className="text-lg font-bold text-[#27AE60] mb-4 flex items-center gap-2">
+                <Users className="w-5 h-5" />
                 Comunidade de Especialistas
               </h3>
-              <p className="text-gray-400 text-sm mb-4">
+              <p className="text-[#7F8C8D] text-sm mb-4">
                 Tire suas dúvidas com profissionais qualificados!
               </p>
               <div className="space-y-3">
-                <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-5 rounded-2xl justify-start">
-                  <ChefHat className="w-5 h-5 mr-3 text-[#00FF00]" />
+                <Button className="w-full bg-white hover:bg-[#F7F9F9] text-[#1A1A1A] border-2 border-[#E8ECEC] font-semibold py-5 rounded-2xl justify-start shadow-sm hover:shadow-md">
+                  <ChefHat className="w-5 h-5 mr-3 text-[#27AE60]" />
                   Perguntar ao Nutricionista
                 </Button>
-                <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-5 rounded-2xl justify-start">
-                  <Heart className="w-5 h-5 mr-3 text-[#00FF00]" />
+                <Button className="w-full bg-white hover:bg-[#F7F9F9] text-[#1A1A1A] border-2 border-[#E8ECEC] font-semibold py-5 rounded-2xl justify-start shadow-sm hover:shadow-md">
+                  <Heart className="w-5 h-5 mr-3 text-[#27AE60]" />
                   Perguntar ao Médico do Esporte
                 </Button>
-                <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-5 rounded-2xl justify-start">
-                  <Dumbbell className="w-5 h-5 mr-3 text-[#00FF00]" />
+                <Button className="w-full bg-white hover:bg-[#F7F9F9] text-[#1A1A1A] border-2 border-[#E8ECEC] font-semibold py-5 rounded-2xl justify-start shadow-sm hover:shadow-md">
+                  <Dumbbell className="w-5 h-5 mr-3 text-[#27AE60]" />
                   Perguntar ao Personal Trainer
                 </Button>
               </div>
             </Card>
 
             {/* Avaliação do App */}
-            <Card className="bg-gray-950 border-0 p-6">
-              <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <Star className="w-5 h-5 text-[#00FF00]" />
+            <Card className="bg-white border-0 shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
+              <h3 className="text-lg font-bold text-[#27AE60] mb-4 flex items-center gap-2">
+                <Star className="w-5 h-5" />
                 Avalie o AtiveMind
               </h3>
-              <p className="text-gray-400 text-sm mb-4">
+              <p className="text-[#7F8C8D] text-sm mb-4">
                 Sua opinião é muito importante para nós! Como está sendo sua experiência?
               </p>
               
@@ -933,8 +933,8 @@ export function Dashboard({ userProfile }: DashboardProps) {
                     <Star
                       className={`w-10 h-10 ${
                         star <= appRating
-                          ? "fill-[#00FF00] text-[#00FF00]"
-                          : "text-gray-700"
+                          ? "fill-[#27AE60] text-[#27AE60]"
+                          : "text-[#E8ECEC]"
                       }`}
                     />
                   </button>
@@ -946,20 +946,20 @@ export function Dashboard({ userProfile }: DashboardProps) {
                 placeholder="Conte-nos sobre sua experiência com o AtiveMind..."
                 value={appReview}
                 onChange={(e) => setAppReview(e.target.value)}
-                className="bg-gray-900 border-gray-800 text-white placeholder:text-gray-600 mb-4 min-h-[100px]"
+                className="bg-[#F7F9F9] border-[#E8ECEC] text-[#1A1A1A] placeholder:text-[#7F8C8D] mb-4 min-h-[100px] rounded-2xl"
               />
 
-              <Button className="w-full bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-4 rounded-2xl">
+              <Button className="w-full bg-[#27AE60] hover:bg-[#229954] text-white font-bold py-4 rounded-2xl shadow-lg">
                 Enviar avaliação
               </Button>
             </Card>
 
             {/* Mensagem Motivacional */}
             {userProfile.futureAchievement && (
-              <Card className="bg-[#00FF00]/10 border-2 border-[#00FF00] p-6">
-                <h3 className="text-lg font-bold text-[#00FF00] mb-3">🎯 Sua Meta:</h3>
-                <p className="text-white italic">"{userProfile.futureAchievement}"</p>
-                <p className="text-gray-400 text-sm mt-3">Continue firme! Você está no caminho certo! 💪</p>
+              <Card className="bg-[#27AE60]/10 border-2 border-[#27AE60] shadow-[0_4px_24px_rgba(0,0,0,0.07)] p-6 rounded-2xl">
+                <h3 className="text-lg font-bold text-[#27AE60] mb-3">🎯 Sua Meta:</h3>
+                <p className="text-[#1A1A1A] italic">"{userProfile.futureAchievement}"</p>
+                <p className="text-[#7F8C8D] text-sm mt-3">Continue firme! Você está no caminho certo! 💪</p>
               </Card>
             )}
           </div>
