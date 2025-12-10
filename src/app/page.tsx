@@ -2,37 +2,57 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { WelcomeScreen } from "@/components/WelcomeScreen";
-import { Quiz } from "@/components/Quiz";
+import { WelcomeScreen } from "./components/WelcomeScreen";
+import { Quiz } from "./components/Quiz";
 
-export type QuizAnswers = {
-  q1: string; // nome
-  q2: string; // data nascimento
-  q3: string; // como se sente hoje
-  q4: string; // nível atividade física
-  q5: string[]; // incômodo físico (múltipla)
-  q6: string; // humor
-  q7: string; // objetivo principal
-  q8: string; // tempo disponível
-  q9: string; // o que quer mudar
-  q10: string; // o que atrapalha
-  q11: string; // frase que combina
+export type UserProfile = {
+  // Dados pessoais
+  name: string;
+  age: string;
+  birthDate: string;
+  
+  // Saúde e hábitos
+  healthConditions: string[];
+  currentHabits: string[];
+  sleepQuality: string;
+  stressLevel: string;
+  
+  // Motivação e objetivos
+  fitnessGoal: string;
+  personalGoal: string;
+  mainInsecurities: string[];
+  
+  // Conquista futura
+  futureAchievement: string;
+  
+  // Dados originais (mantidos para compatibilidade)
+  routine: string;
+  activityLevel: string;
+  physicalPain: string[];
+  emotionalPain: string[];
+  goals: string[];
+  availableTime: string;
 };
 
 export default function Home() {
   const router = useRouter();
   const [showWelcome, setShowWelcome] = useState(true);
+  const [hasCompletedQuiz, setHasCompletedQuiz] = useState(false);
 
-  const handleQuizComplete = (answers: QuizAnswers) => {
-    // Salvar respostas no localStorage para usar na página de diagnóstico
-    localStorage.setItem("quizAnswers", JSON.stringify(answers));
-    // Redireciona para a página de diagnóstico
-    router.push("/diagnostico_ia");
+  const handleQuizComplete = (profile: UserProfile) => {
+    setHasCompletedQuiz(true);
+    // Redireciona para o dashboard após completar o quiz
+    router.push("/dashboard");
   };
 
   if (showWelcome) {
     return <WelcomeScreen onStart={() => setShowWelcome(false)} />;
   }
 
-  return <Quiz onComplete={handleQuizComplete} />;
+  if (!hasCompletedQuiz) {
+    return <Quiz onComplete={handleQuizComplete} />;
+  }
+
+  // Este return nunca será alcançado pois redirecionamos para /dashboard
+  return null;
 }
